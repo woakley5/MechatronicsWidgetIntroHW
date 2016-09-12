@@ -1,0 +1,29 @@
+class IDLE:
+    pass
+
+class MOTIONMACHINE:
+    def master():
+        def events():
+            moveLiftUp
+            moveToBottom
+            setLiftToZero
+            runSteps
+            stopSteps
+        def values():
+            stepperPosition = uint32_t
+class ARM:
+    def master():
+        def events():
+            moveFromTallToShort
+            moveFromShortToTall
+            disableElectromagnet
+            enableElectromagnet
+            lowerArm
+            raiseArm
+            resetArmPosition
+            moveArm
+        def values():
+            rotations = uint32_t
+    def tablet():
+        def events():
+		    finishedAction
