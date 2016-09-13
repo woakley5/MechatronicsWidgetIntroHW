@@ -26,7 +26,13 @@ __attribute__((weak)) void loop();
 void event(uint8_t);
 __attribute__((weak)) void exit();
 
+namespace tablet {
 
+namespace events {
+void finishedAction();
+
+}
+}
 
 namespace events {
 void moveLiftUp();

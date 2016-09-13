@@ -20,14 +20,14 @@ void setup() {
   stepper1.setSpeedInMillimetersPerSecond(25);
   stepper1.setAccelerationInMillimetersPerSecondPerSecond(10);
   stepper1.disableStepper();
-  gateServo.setServoPosition(25);
+  //gateServo.setServoPosition(25);
   gateServo.connectToPin(SERVO_GATE);
   pinMode(STEP_MOTOR, OUTPUT);
   pinMode(LOWER_SENSOR, INPUT_PULLUP);
   pinMode(UPPER_SENSOR, INPUT_PULLUP);
   pinMode(LIMIT_SENSOR, INPUT_PULLUP);
-  servoClosedPosition = 0.9;
-  servoOpenPosition = 0;
+  servoClosedPosition = 0;
+  servoOpenPosition = 0.9;
   events::setLiftToZero();
 }
 
@@ -40,7 +40,7 @@ void events::moveLiftUp() {
   gateServo.setServoPosition(servoClosedPosition);
 
   stepper1.enableStepper();
-  stepper1.setupMoveInMillimeters(224);
+  stepper1.setupMoveInMillimeters(-226);
   while(!stepper1.motionComplete())
   {
     stepper1.processMovement();
@@ -64,7 +64,7 @@ void events::moveToBottom() {
 
 void events::setLiftToZero() {
   stepper1.enableStepper();
-  stepper1.moveToHomeInMillimeters(-1, 50, 250, LIMIT_SENSOR);
+  stepper1.moveToHomeInMillimeters(1, 50, 250, LIMIT_SENSOR);
   stepper1.setCurrentPositionInMillimeters(0);
   stepper1.disableStepper();
   liftReady = true;

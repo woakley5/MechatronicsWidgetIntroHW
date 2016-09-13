@@ -11,6 +11,9 @@ class MOTIONMACHINE:
             stopSteps
         def values():
             stepperPosition = uint32_t
+    def tablet():
+        def events():
+            finishedAction
 class ARM:
     def master():
         def events():

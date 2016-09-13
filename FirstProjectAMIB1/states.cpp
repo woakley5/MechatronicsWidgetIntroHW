@@ -11,7 +11,7 @@ static const WireValue wire_values[2] = {
   {2, 0, sizeof(uint32_t), (Value<void*>*) &ARM::rotations}
 };
 
-MasterManager<State, 3, 2> manager(0x19465309, state_infos, wire_values, 0);
+MasterManager<State, 3, 2> manager(0x6f22a0ba, state_infos, wire_values, 0);
 
 namespace IDLE {
 
@@ -51,7 +51,12 @@ void event(uint8_t ev) {
   }
 }
 
+namespace tablet {
 
+namespace events {
+void finishedAction() { manager.sendTabletEvent(0); }
+}
+}
 }
 namespace ARM {
 Value<uint32_t> rotations;

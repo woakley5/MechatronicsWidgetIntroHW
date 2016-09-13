@@ -38,7 +38,7 @@ var MOTIONMACHINE = {
       
     },
     events: {
-      
+      finishedAction: new LocalEvent(1, 0)
     }
   }
 };
